@@ -1,0 +1,17 @@
+@charset "UTF-8";
+body {
+	background-color: #323232;
+}
+legend {
+	font-family:"Century Gothic", Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 1.5em;
+	color:#66aa66;
+}
+p {
+	font-family:"Century Gothic", Arial, Helvetica, sans-serif;
+	font-size: 1.0em;
+	color:#225522;
+	margin: 0px;
+	padding: 3px;
+}
