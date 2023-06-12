@@ -16,3 +16,23 @@ const toggleHippo = () => {
         setTimeout(()=> hippoStatus = "in", 5000);
     }
 };
+
+const hippoGoesIn = () => {
+    if (hippoStatus === "out") toggleHippo();
+    else if (hippoStatus === "moving") setTimeout(hippoGoesIn, 1000);
+};
+
+const hippoComesOut = () => {
+    if (hippoStatus === "in") toggleHippo();
+    else if (hippoStatus === "moving") setTimeout(hippoComesOut, 1000);
+}
+
+const registerEvents = (event) => {
+    const findOutButton = document.querySelector("#findOut");
+    findOutButton.addEventListener("click", hippoComesOut);
+
+    const locationInput = document.querySelector("#loc");
+    locationInput.addEventListener("focus", hippoGoesIn);
+};
+
+window.addEventListener("DOMContentLoaded", registerEvents);
