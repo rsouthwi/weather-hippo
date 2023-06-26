@@ -1,5 +1,5 @@
-APP_NAME = weather-backend
-APP_VERSION = 'dev'
+APP_NAME = weather-api
+APP_VERSION = 'prod'
 
 AWS_ECR_ACCOUNT_ID ?= 910120794347
 AWS_ECR_REGION ?= us-east-1
