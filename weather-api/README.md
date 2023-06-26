@@ -1,6 +1,6 @@
 # Weather Backend
 
-##Local Development
+## Local Development
 Create a .env file in the /weather-api directory
 
 Copy the API key from your account at [WeatherAPI](https://www.weatherapi.com).
