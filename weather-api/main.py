@@ -1,7 +1,8 @@
 import json
 import math
+import os
 
-from faker import Faker
+from dotenv import load_dotenv, find_dotenv
 import requests
 from typing import Any
 
@@ -10,8 +11,8 @@ try:
 except ModuleNotFoundError:
     from .mappers import weather_api_mapping
 
-fake = Faker()
-
+load_dotenv(find_dotenv())
+WEATHER_API_KEY = os.environ['WEATHER_API_KEY']
 
 class UnknownLocationException(Exception):
     ...
@@ -22,7 +23,7 @@ class APIError(Exception):
 
 
 def get_weather_api_data(location: str) -> dict:
-    api_key = "0b42333b5d69423f858200437230806"
+    api_key = WEATHER_API_KEY
     url = f"https://api.weatherapi.com/v1/current.json?key={api_key}&q={location}"
     headers = {"accept": "application/json"}
     response = requests.get(url, headers=headers)
