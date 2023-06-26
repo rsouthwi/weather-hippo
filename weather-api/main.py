@@ -23,8 +23,7 @@ class APIError(Exception):
 
 
 def get_weather_api_data(location: str) -> dict:
-    api_key = WEATHER_API_KEY
-    url = f"https://api.weatherapi.com/v1/current.json?key={api_key}&q={location}"
+    url = f"https://api.weatherapi.com/v1/current.json?key={WEATHER_API_KEY}&q={location}"
     headers = {"accept": "application/json"}
     response = requests.get(url, headers=headers)
     if response.status_code == 400:
