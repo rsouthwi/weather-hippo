@@ -77,7 +77,7 @@ def format_weather_payload(weather_data: dict) -> dict:
         "temperature": get_fahrenheit(weather_data)
     }
 
-def lambda_handler(event: dict, context: Any):
+def lambda_handler(event: dict, context: Any) -> dict:
     # qs_params = event.get("queryStringParameters") # dict of key-value pairs
     try:
         location = get_location_from_event(event)
