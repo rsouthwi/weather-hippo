@@ -78,7 +78,6 @@ def format_weather_payload(weather_data: dict) -> dict:
     }
 
 def lambda_handler(event: dict, context: Any) -> dict:
-    # qs_params = event.get("queryStringParameters") # dict of key-value pairs
     try:
         location = get_location_from_event(event)
         weather_data = get_weather_api_data(location)
