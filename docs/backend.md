@@ -28,4 +28,4 @@ from the weather-hippo root directory:
 The function should appear [here](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions)
 
 ##### To delete the Lambda
-* `terraform destroy -var="env_name=dev"`
+* `terraform destroy -var="env_name=prod"`
