@@ -34,3 +34,8 @@ override.tf.json
 terraform.rc
 
 .idea/
+.venv/
+weather-api/.env
+.ipynb_checkpoints/
+__pycache__/
+*.ipynb
