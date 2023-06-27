@@ -11,7 +11,7 @@ to some weather api and return the result.  My concept was a "digital [weather r
 that only reported the current state of the weather (rather than a forecast or anything more useful), using an animation
 of Lustine, a cartoon character I created for my young daughter, to deliver the news.
 I have since decided to revisit this and rewrite it as opportunity to learn about Docker and Terraform while introducing
-Lustine on my website (coming soon!)
+Lustine on my [website](https://www.ronsouthwick.com/weather/).
 
 ## Front End
 To run the front end locally, using docker:
