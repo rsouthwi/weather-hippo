@@ -85,6 +85,19 @@ p {
 #form {
 	margin: 2px 25px;
 }
+header {
+	position: absolute;
+    padding-top: 25px;
+	z-index: 3;
+	width: 100%;
+}
+.center-align {
+	text-align: center;
+}
+.title {
+	width: 180px;
+	height: 26px
+}
 footer  {
 	/* Weather API asked me to post this link in exchange for free use of their service */
 	position: fixed;
