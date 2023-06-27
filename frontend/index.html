@@ -10,18 +10,25 @@
 </head>
 <body>
     <div id="container">
-        <img src="images/house.gif" id="house" alt="a river house for a river horse">
-        <div id="bubble"></div>
+        <div id="content">
+            <img src="images/house.gif" id="house" alt="a river house for a river horse">
+            <div id="bubble"></div>
+        </div>
+    </div>
+    <div id="form">
         <form>
             <label for="loc">How's the weather out your window?</label>
             <div>
                 <span>
                     <input type="text" id="loc" name="location" placeholder="city or zipcode">
-                    <button type="button" id="findOut">Find Out</button>
+                    <button id="findOut">Find Out</button>
                 </span>
             </div>
         </form>
     </div>
+    <footer>
+        Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
