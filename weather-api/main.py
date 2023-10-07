@@ -77,6 +77,19 @@ def format_weather_payload(weather_data: dict) -> dict:
     }
 
 def lambda_handler(event: dict, context: Any) -> dict:
+    if not event or event.get("httpMethod") == "GET":
+        return {
+            "statusCode": 200,
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+                "Access-Control-Allow-Credentials": True
+            },
+            "body": "Wakey, Wakey, eggs and Bakey!"
+        }
+
     try:
         location = get_location_from_event(event)
         weather_data = get_weather_api_data(location)
@@ -97,7 +110,7 @@ def lambda_handler(event: dict, context: Any) -> dict:
             "Content-Type": "application/json",
             "Access-Control-Allow-Headers": "Content-Type",
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "OPTIONS,POST",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
             "Access-Control-Allow-Credentials": True
         },
         "body": message
