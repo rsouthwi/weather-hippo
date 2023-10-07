@@ -18,7 +18,7 @@ From the /weather-api directory:
 
 * `make docker/push TAG=prod` <= pushes to AWS ECR
 * `make docker/run` <= runs a container locally
-* `maker docker/test` <= tests a local POST curl command
+* `make docker/test` <= tests a local POST curl command
 
 from the weather-hippo root directory:
 
