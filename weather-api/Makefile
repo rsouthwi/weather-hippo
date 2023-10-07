@@ -22,4 +22,7 @@ docker/run :
 	docker run -d -p 9000:8080 $(AWS_ECR_ACCOUNT_ID).dkr.ecr.$(AWS_ECR_REGION).amazonaws.com/$(AWS_ECR_REPO):$(TAG)
 
 docker/test :
+	@echo "*** testing POST ***"
 	curl -XPOST 'http://localhost:9000/2015-03-31/functions/function/invocations' -d '{"location": 22314}'
+	@echo "\n\n*** testing GET ***"
+	curl 'http://localhost:9000/2015-03-31/functions/function/invocations' -d '{}'
