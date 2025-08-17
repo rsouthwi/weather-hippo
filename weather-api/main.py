@@ -87,7 +87,7 @@ def lambda_handler(event: dict, context: Any) -> dict:
                 "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
                 "Access-Control-Allow-Credentials": True
             },
-            "body": "Wakey, Wakey, eggs and Bakey!"
+            "body": json.dumps({"message": "Wakey, Wakey, eggs and Bakey!"})
         }
 
     try:
