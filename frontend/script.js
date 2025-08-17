@@ -1,7 +1,22 @@
 let hippoStatus = "in";
+let awake = false;
+const url = "https://www.ronsouthwick.com/weather-api";
+
+const wakeUp = () => {
+    if (awake) return;
+    fetch(url, {
+        method: 'GET',
+        headers: {"host": "ronsouthwick.com"}
+    })
+    .then(response => {
+        if (response.status === 200) awake = true;
+    })
+    .catch(() => {
+        // Ignore errors - this is just for warming
+    });
+}
 
 const getWeatherData = (location) => {
-    const url = "https://www.ronsouthwick.com/weather-api";
     const payload = {"location": location};
     const headers = {"Content-type": "application/json", "host": "ronsouthwick.com"};
 
@@ -68,6 +83,7 @@ const hippoComesOut = () => {
 }
 
 const registerEvents = (event) => {
+    wakeUp();
     const locationInput = document.querySelector("#loc");
     locationInput.addEventListener("focus", hippoGoesIn);
 
