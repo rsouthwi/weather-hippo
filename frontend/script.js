@@ -58,13 +58,15 @@ const toggleHippo = () => {
     const house = document.getElementById("house");
 
     if (!house.src.includes("_open")) {
-        house.src = "images/house_open.gif";
-        setTimeout(()=> hippoStatus = "out", 5000);
+        const timestamp = new Date().getTime();
+        house.src = `images/house_open.gif?t=${timestamp}`;
+        setTimeout(()=> hippoStatus = "out", 4500);
     } else {
         const speechBubble = document.getElementById("bubble");
-        house.src = "images/house_close.gif";
+        const timestamp = new Date().getTime();
+        house.src = `images/house_close.gif?t=${timestamp}`;
         speechBubble.classList.remove("load");
-        setTimeout(()=> hippoStatus = "in", 5000);
+        setTimeout(()=> hippoStatus = "in", 4500);
     }
 };
 
