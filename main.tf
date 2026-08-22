@@ -34,6 +34,18 @@ resource "aws_lambda_function" "weather_backend_function" {
   }
 }
 
+resource "aws_lambda_permission" "allow_api_gateway_invoke" {
+  statement_id  = "apigateway-invoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.weather_backend_function.function_name
+  principal     = "apigateway.amazonaws.com"
+
+  # the "weather-api" REST API (id y61am9ahph) is set up outside this
+  # Terraform config; this grants it invoke access so a Lambda replacement
+  # (e.g. the package_type change) doesn't silently strip that permission again
+  source_arn = "arn:aws:execute-api:us-east-1:910120794347:y61am9ahph/*/*/*"
+}
+
 resource "aws_iam_role" "weather_backend_function_role" {
   name = "weather-api"
 
