@@ -50,6 +50,7 @@ resource "aws_iam_role" "weather_backend_function_role" {
   name = "weather-api"
 
   assume_role_policy = jsonencode({
+    Version = "2008-10-17"
     Statement = [
       {
         Action = "sts:AssumeRole"
