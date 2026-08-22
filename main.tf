@@ -21,7 +21,8 @@ data "aws_ecr_repository" "weather_backend_ecr_repo" {
 
 resource "aws_lambda_function" "weather_backend_function" {
   function_name = "weather-api"
-  timeout       = 5 # seconds
+  timeout       = 10 # seconds
+  memory_size   = 256 # MB, up from the 128 default to speed up cold starts
   image_uri     = "${data.aws_ecr_repository.weather_backend_ecr_repo.repository_url}:${var.env_name}"
   package_type  = "Image"
 
