@@ -16,7 +16,7 @@ From the /weather-api directory:
 ## AWS Deployment
 From the /weather-api directory:
 
-* `make docker/push TAG=prod` <= pushes to AWS ECR
+* `make zip/build` <= builds the deployment package (weather-api/lambda.zip)
 * `make docker/run` <= runs a container locally
 * `make docker/test` <= tests a local POST curl command
 

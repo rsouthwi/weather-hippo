@@ -1,30 +1,29 @@
 terraform {
-    required_providers {
-        aws = {
-            source = "hashicorp/aws"
-            version = "~>4.0"
-        }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~>5.0"
     }
+  }
 }
 
 provider "aws" {
-    region = "us-east-1"
+  region = "us-east-1"
 }
 
 variable "env_name" {
   description = "Environment name"
 }
 
-data "aws_ecr_repository" "weather_backend_ecr_repo" {
-  name = "weather-api"
-}
-
 resource "aws_lambda_function" "weather_backend_function" {
-  function_name = "weather-api"
-  timeout       = 10 # seconds
-  memory_size   = 256 # MB, up from the 128 default to speed up cold starts
-  image_uri     = "${data.aws_ecr_repository.weather_backend_ecr_repo.repository_url}:${var.env_name}"
-  package_type  = "Image"
+  function_name    = "weather-api"
+  timeout          = 10  # seconds
+  memory_size      = 256 # MB, up from the 128 default to speed up cold starts
+  filename         = "${path.module}/weather-api/lambda.zip"
+  source_code_hash = filebase64sha256("${path.module}/weather-api/lambda.zip")
+  handler          = "main.lambda_handler"
+  runtime          = "python3.12"
+  package_type     = "Zip"
 
   role = aws_iam_role.weather_backend_function_role.arn
 

@@ -36,6 +36,8 @@ terraform.rc
 .idea/
 .venv/
 weather-api/.env
+weather-api/build/
+weather-api/lambda.zip
 .ipynb_checkpoints/
 __pycache__/
 *.ipynb
